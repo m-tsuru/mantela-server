@@ -1,6 +1,6 @@
 # mantela-adder
 
-Mantela Adder enables you to add mantela files to your mantela collection.
+Mantela Adder makes you happy.
 
 > [!IMPORTANT]
 > Mantela Adder functionality will be replaced in the future by [mantela-merger](https://github.com/tkytel/mantela-merger) and [tripd](https://github.com/tkytel/tripd).
