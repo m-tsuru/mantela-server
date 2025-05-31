@@ -5,32 +5,53 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 	mantela_fetcher "github.com/tkytel/mantela-adder/fetcher"
 )
 
+func fetch(path string) ([]byte, error) {
+	// if path starts http:// or https://, then fetch the Mantela JSON from the internet.
+	// else, read the Mantela JSON from the local file system.
+	if strings.HasPrefix(path, "http://") || strings.HasPrefix(path, "https://") {
+		// Create a new HTTP client and request to fetch the Mantela JSON
+		client := &http.Client{}
+		req, err := http.NewRequest("GET", path, nil)
+		if err != nil {
+			log.Printf("Error creating request: %v", err)
+			return nil, err
+		}
+		r, err := client.Do(req)
+		if err != nil {
+			log.Printf("Error fetching Mantela: %v", err)
+			return nil, err
+		}
+		defer r.Body.Close()
+		resp, err := io.ReadAll(r.Body)
+		if err != nil {
+			log.Printf("Error reading response body: %v", err)
+			return nil, err
+		}
+		return resp, nil
+	} else {
+		data, err := os.ReadFile(path)
+		if err != nil {
+			log.Printf("Error reading file: %v", err)
+			return nil, err
+		}
+		return data, nil
+	}
+}
+
 func HandleMantela(c *fiber.Ctx, source string, diff string) error {
-	// Create a new HTTP client and request to fetch the Mantela JSON
-	client := &http.Client{}
-	req, err := http.NewRequest("GET", source, nil)
+	r1, err := fetch(source)
 	if err != nil {
-		log.Printf("Error creating request: %v", err)
-		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching Mantela")
-	}
-	r, err := client.Do(req)
-	if err != nil {
-		log.Printf("Error fetching Mantela: %v", err)
-		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching Mantela")
-	}
-	defer r.Body.Close()
-	resp, err := io.ReadAll(r.Body)
-	if err != nil {
-		log.Printf("Error reading response body: %v", err)
+		log.Printf("%v", err)
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching Mantela")
 	}
 
-	m1, err := mantela_fetcher.ParseMantela(resp)
+	m1, err := mantela_fetcher.ParseMantela(r1)
 	if err != nil {
 		log.Printf("Error parsing Mantela: %v", err)
 		return c.Status(fiber.StatusInternalServerError).SendString("Error fetching Mantela")
@@ -40,12 +61,12 @@ func HandleMantela(c *fiber.Ctx, source string, diff string) error {
 	if diff == "" {
 		return c.JSON(m1)
 	}
-	data, err := os.ReadFile(diff)
+	r2, err := fetch(diff)
 	if err != nil {
 		log.Printf("Error reading file: %v", err)
 		return c.Status(fiber.StatusInternalServerError).SendString("Error reading override file")
 	}
-	m2, err := mantela_fetcher.ParseMantela([]byte(data))
+	m2, err := mantela_fetcher.ParseMantela(r2)
 	if err != nil {
 		log.Printf("Error parsing local Mantel (Returning is Unmerged Mantela): %v", err)
 		return c.JSON(m1)
