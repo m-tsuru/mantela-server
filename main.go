@@ -19,7 +19,7 @@ func main() {
 	if config.Serve.Static {
 		app.Static("/", config.Serve.StaticDir)
 	}
-	app.Get("/.well-known/mantela.json", func(c *fiber.Ctx) error {
+	app.Get(config.Serve.Mantela, func(c *fiber.Ctx) error {
 		return lib.HandleMantela(c, config.Mantela.Source, config.Mantela.Diff)
 	})
 

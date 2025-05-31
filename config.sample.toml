@@ -1,6 +1,6 @@
 [serve]
 port = 8080 # Port to serve the application on.
-mantela = "/.well-known/mantela.json" # Path to the Mantela configuration file.
+mantela = "/.well-known/mantela.json" # It means that http://example.com/.well-known/mantela.json
 static = true # Path to the static files directory.
 static_dir = "static" # Directory containing static files to serve.
 
