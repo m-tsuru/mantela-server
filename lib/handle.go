@@ -37,6 +37,9 @@ func HandleMantela(c *fiber.Ctx, source string, diff string) error {
 	}
 
 	// Get Local Mantela that the user wants to merge.
+	if diff == "" {
+		return c.JSON(m1)
+	}
 	data, err := os.ReadFile(diff)
 	if err != nil {
 		log.Printf("Error reading file: %v", err)
