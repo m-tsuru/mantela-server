@@ -2,6 +2,12 @@
 
 Mantela Adder enables you to add mantela files to your mantela collection.
 
+> [!IMPORTANT]
+> Mantela Adder functionality will be replaced in the future by [mantela-merger](https://github.com/tkytel/mantela-merger) and [tripd](https://github.com/tkytel/tripd).
+> At that time, this repository may be Public Archived.
+> Please note the latest information.
+
+
 ## Usage
 
 1. copy `config.sample.toml` to `config.toml` and change it as you like.
