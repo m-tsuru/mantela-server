@@ -1,0 +1,9 @@
+[serve]
+port = 8080 # Port to serve the application on.
+mantela = "/.well-known/mantela.json" # Path to the Mantela configuration file.
+static = true # Path to the static files directory.
+static_dir = "static" # Directory containing static files to serve.
+
+[mantela]
+source = "https://example.com/.well-known/mantela.json" # Enter the URL you wish to specify as the merge source.
+diff = "override.json" # Enter the path of mantela file you wish to specify as the difference.
