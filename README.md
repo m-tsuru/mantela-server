@@ -3,8 +3,8 @@
 Mantela Adder shows an example implementation that merges two mantelas and serves them.
 
 > [!IMPORTANT]
-> Mantela Adder functionality will be replaced in the future by [tripd](https://github.com/tkytel/tripd).
-> At that time, this repository may be Public Archived.
+> Mantela Adder is a sample implementation.
+> It is not a production-ready software, and it is not recommended to use it in production environments.
 > Please note the latest information.
 
 
