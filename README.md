@@ -1,12 +1,15 @@
-# Mantela Adder
+# Mantela Server
 
-Mantela Adder shows an example implementation that merges two mantelas and serves them.
+Mantela Server is a simple serve that serves and proxies mantela.json files.
+
+Some Features:
+- Serve mantela.json from a file.
+- Proxy mantela.json from a URL.
+- Override mantela.json with a source mantela file.
 
 > [!IMPORTANT]
-> Mantela Adder is a sample implementation.
-> It is not a production-ready software, and it is not recommended to use it in production environments.
-> Please note the latest information.
-
+> Mantela Server is a sample implementation.
+> It is unofficial and not affiliated with the mantela project.
 
 ## Usage
 
@@ -14,7 +17,7 @@ Mantela Adder shows an example implementation that merges two mantelas and serve
 
 2. save mantela file that you want to override to source mantela file.
 
-3. run mantela-adder.
+3. run mantela-server.
 
 ## Tips
 
