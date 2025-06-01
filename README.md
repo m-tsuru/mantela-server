@@ -19,9 +19,26 @@ Some Features:
 
 3. run mantela-server.
 
+## Docker
+
+You can run mantela-server with Docker.
+
+1. You need to do Step 1, 2 in Usage section before running Docker.
+
+2. Run the following command:
+
+```bash
+docker compose up -d
+```
+
+> [!NOTE]
+>
+> however, In the future, the official tkytel may provide a compose.yaml that allows quick start of customized MikoPBX.
+> At that time, this repository may follow suit and provide an additional mantela-adder with customized MikoPBX.
+
 ## Tips
 
-if the destination of `diff` is not set in `config.toml`, mantela-adder serves `source` mantela simply.
+if the destination of `diff` is not set in `config.toml`, mantela-server serves `source` mantela simply.
 
 If mantela.json is fetched from the web, it can be treated as a proxy, and if mantela.json is served from a file, it can be treated as mantela.json hosting software.
 
