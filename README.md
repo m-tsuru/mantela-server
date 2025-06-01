@@ -3,7 +3,7 @@
 Mantela Adder makes you happy.
 
 > [!IMPORTANT]
-> Mantela Adder functionality will be replaced in the future by [mantela-merger](https://github.com/tkytel/mantela-merger) and [tripd](https://github.com/tkytel/tripd).
+> Mantela Adder functionality will be replaced in the future by [tripd](https://github.com/tkytel/tripd).
 > At that time, this repository may be Public Archived.
 > Please note the latest information.
 
