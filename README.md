@@ -1,6 +1,6 @@
-# mantela-adder
+# Mantela Adder
 
-Mantela Adder makes you happy.
+Mantela Adder shows an example implementation that merges two mantelas and serves them.
 
 > [!IMPORTANT]
 > Mantela Adder functionality will be replaced in the future by [tripd](https://github.com/tkytel/tripd).
