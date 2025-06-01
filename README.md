@@ -1,6 +1,6 @@
 # Mantela Server
 
-Mantela Server is a simple serve that serves and proxies mantela.json files.
+Mantela Server is a simple server that serves and proxies mantela.json files.
 
 Some Features:
 - Serve mantela.json from a file.
