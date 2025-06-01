@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./config.toml:/app/config.toml
+      - ./override.json:/app/override.json
+      - ./static:/app/static
+    ports:
+      - "9000:8080"
